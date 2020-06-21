@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CreateTest.CreateData"
+             Title="Create New"
+             Padding="20">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Entry">
+                            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+
+                <ProgressBar x:Name="progress"
+                     HorizontalOptions="FillAndExpand"
+                     IsVisible="True"/>
+
+                <Label x:Name="labelAd" Text=""/>
+                <Entry x:Name="entryTitle" 
+                   Text="{Binding title}" 
+                   HorizontalTextAlignment="Center"
+                   BackgroundColor="White" 
+                   Placeholder="Give me a title."
+                   FontSize="Large"
+                   TextColor="Black"/>
+
+
+                <Editor x:Name="entryBody" 
+                    Text="{Binding body}" 
+                    TextColor="Black" 
+                    BackgroundColor="White"
+                    MaxLength="50"
+                    HeightRequest="60"
+                    Placeholder="Describe something here."
+                    FontSize="Body"/>
+
+                <StackLayout Orientation="Vertical"
+                             VerticalOptions="End">
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="StackLayout">
+                                <Setter Property="Orientation" Value="Horizontal"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+
+                    <!--<StackLayout>
+                        <Label x:Name="labelAuthority"
+                               Text="Who can read./授权目标"/>
+                        <Entry x:Name="entryAuthority"
+                               Text="All"/>
+                    </StackLayout>-->
+
+                    <StackLayout>
+                        <Label x:Name="labelFilesPath"
+                               Text="Path of folder/文件夹"/>
+                        <Entry x:Name="entryFilesPath"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Button x:Name="entryFiles"
+                                Clicked="OnEntryFilesButtonClicked"
+                                Text="File/文件"/>
+                        <Label x:Name="labelFiles"
+                               Text="...."/>
+                    </StackLayout>
+
+
+                    <StackLayout>
+                        <Button Text="Back" 
+                                x:Name="backButton" 
+                                Clicked="OnBackButtonClicked"/>
+
+                        <Button Text="Save"
+                                x:Name="saveButton"
+                                Clicked="OnSaveButtonClicked"
+                                HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
